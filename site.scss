@@ -1,0 +1,39 @@
+* {
+  @include box-sizing(border-box);
+  padding: 0; margin: 0;
+  vertical-align: baseline;
+}
+
+/* define grid (http://thoughtbot.com/bourbon/#grid-width) */
+$gw-column: 60px;
+$gw-gutter: 20px;
+$side-padding: 10px;
+
+@function total-width($n, $side: $side-padding) {
+  @return grid-width($n) + (2 * $side);
+}
+$w-640: total-width(8);
+
+$font-size: 18px;
+$line-h: $font-size * 1.5;
+
+/* layout */
+body {
+  font: 18px/1.5 avenir, optima, helvetica, arial, sans-serif;
+  color: #606066;
+  // background:black;
+  background: url('http://www.baselineme.com/27') center top repeat;
+}
+.centered {
+  width: $w-640; height:100%;
+  margin:0 auto; padding-top: 10px;
+  background-color: #fdfdfd;
+
+  /* draw grid */
+  @include linear-gradient(left, transparent $gw-column, #eee $gw-column, #eee);
+  @include background-size($gw-column + $gw-gutter);
+  background-position: $side-padding 0;
+}
+
+/* headings */
+body > h1 { line-height:0; margin-left:-20000px; }
