@@ -7,48 +7,52 @@
 /* define grid (http://thoughtbot.com/bourbon/#grid-width) */
 $gw-column: 60px;
 $gw-gutter: 20px;
-$side-padding: 10px;
+$outer-margin: 10px;
 
-@function total-width($n, $side: $side-padding) {
-  @return grid-width($n) + (2 * $side);
+@function total-width($n, $outer: $outer-margin) {
+  @return grid-width($n) + (2 * $outer);
 }
 $w-640: total-width(8);
+$w-720: total-width(9);
 
-$font-size: 18px;
+$font-size: 16px;
 $line-h: $font-size * 1.5;
 
 /* layout */
 body {
-  font: 18px/1.5 avenir, optima, helvetica, arial, sans-serif;
-  color: #606066;
-  // background:black;
-  background: url('http://www.baselineme.com/27') center top repeat;
+  font: 16px/1.5 avenir, verdana, arial, helvetica, sans-serif;
+  color: #555558;
 }
 .centered {
   width: $w-640; height:100%;
-  margin:0 auto; padding-top: 10px;
-  background-color: #fdfdfd;
-
-  /* draw grid */
-  @include linear-gradient(left, transparent $gw-column, #eee $gw-column, #eee);
-  @include background-size($gw-column + $gw-gutter);
-  background-position: $side-padding 0;
+  margin:0 auto; padding: 10px $outer-margin;
+  background-color: #fefefe;
+  /* draw grid: 1. baseline, 2. column; */
+  @include background-image(linear-gradient(linen 1px, transparent 1px), linear-gradient(left, transparent $gw-column, #f5f5f5 $gw-gutter));
+  @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
+  background-position: -1px -1px, $outer-margin 0;
 }
+/* general */
+p { margin: 1rem 0; }
+strong { font-weight: 500; }
 
-/* lists */
 ol, ul {
   list-style:inside none;
   li { float:left; }
 }
+
+/* links */
+a { text-decoration: none; }
+
 /* headings */
 h1 {
-  font-size:20px;
+  font-size:40px; font-weight:500;
 
   body > & { line-height:0; margin-left:-20000px; }
 }
 /* nav */
-.main {
+.top-nav {
   height: 3 * $line-h;
-  font-size: 16px;
+  font-weight:500; font-size:16px;
   li { padding-right:20px; }
 }
