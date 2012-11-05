@@ -7,13 +7,12 @@
 /* define grid (http://thoughtbot.com/bourbon/#grid-width) */
 $gw-column: 60px;
 $gw-gutter: 20px;
-$outer-margin: 10px;
+$outer-margin: 50px;
 
 @function total-width($n, $outer: $outer-margin) {
   @return grid-width($n) + (2 * $outer);
 }
-$w-640: total-width(8);
-$w-720: total-width(9);
+$w-720: total-width(8);
 
 $font-size: 16px;
 $line-h: $font-size * 1.5;
@@ -22,16 +21,16 @@ $line-h: $font-size * 1.5;
 body {
   font: 400 16px/1.5 avenir, verdana, arial, helvetica, sans-serif;
   color: #555558;
-  background-color: #222;
+  background-color: linen;
 }
 .centered {
-  width: $w-640; min-height:100%;
+  width: $w-720; min-height:100%;
   margin:0 auto; padding: 30px $outer-margin 100px;
   background-color: #fefefe;
   /* draw grid: 1. baseline, 2. column; */
-  // @include background-image(linear-gradient(linen 1px, transparent 1px), linear-gradient(left, transparent $gw-column, #f5f5f5 $gw-gutter));
-  // @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
-  // background-position: -1px -1px, $outer-margin 0;
+  @include background-image(linear-gradient(linen 1px, transparent 1px), linear-gradient(left, transparent $gw-column, #f5f5f5 $gw-gutter));
+  @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
+  background-position: -1px -1px, $outer-margin 0;
 }
 /* general */
 p { margin: 1.5rem 0; }
@@ -42,8 +41,9 @@ h2, nav a, .contact a { font-weight: 400; }
 a { text-decoration: none; }
 
 /* lists */
-ol, ul { list-style:inside none; }
+ol, ul { list-style-position:inside }
 .inline li { float:left; }
+.listed { list-style-type: disc; }
 
 /* headings */
 h1 {
@@ -55,6 +55,7 @@ h1 {
 h2 {
   font-size: 16px;
   text-transform: uppercase;
+  margin: 1.5rem 0;
 }
 
 /* nav */
