@@ -12,7 +12,6 @@ $orange-paler: #FF9263;
 $orange-palest: #FFAF8D;
 
 $link-color: $pink;
-$body-bgr-color: $orange-paler;
 $text-color: #555558;
 
 /* define grid (http://thoughtbot.com/bourbon/#grid-width) */
@@ -32,11 +31,12 @@ $line-h: $font-size * 1.5;
 body {
   font: 400 16px/1.5 avenir, verdana, arial, helvetica, sans-serif;
   color: $text-color;
-  background-color: $body-bgr-color;
-  @include linear-gradient($orange-paler, $orange-palest, $orange-paler);
+  background-color: $orange-paler;
+  @include background-image(linear-gradient(left, $orange-paler 1px, $orange-palest 2px));
+  @include background-size(3px 3px);
 }
 .centered {
-  width: $wide; min-height:100%;
+  width: $wide; min-height: 100%;
   margin: 0 auto; padding: 30px $outer-margin 100px;
   background-color: #fefefe;
   border-width: 0 1px; border-style: solid; border-color: $orange-palest;
