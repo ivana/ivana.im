@@ -4,15 +4,26 @@
   vertical-align: baseline;
 }
 
+/* colours: http://colorschemedesigner.com/#5q61Tq6.ow0w0 */
+$pink: #e92b61;
+$purple: #883584;
+$orange: #FF6D2F;
+$orange-paler: #FF9263;
+$orange-palest: #FFAF8D;
+
+$link-color: $pink;
+$body-bgr-color: $orange-paler;
+$text-color: #555558;
+
 /* define grid (http://thoughtbot.com/bourbon/#grid-width) */
 $gw-column: 60px;
 $gw-gutter: 20px;
-$outer-margin: 50px;
+$outer-margin: 70px;
 
 @function total-width($n, $outer: $outer-margin) {
   @return grid-width($n) + (2 * $outer);
 }
-$w-720: total-width(8);
+$wide: total-width(8);
 
 $font-size: 16px;
 $line-h: $font-size * 1.5;
@@ -20,13 +31,16 @@ $line-h: $font-size * 1.5;
 /* layout */
 body {
   font: 400 16px/1.5 avenir, verdana, arial, helvetica, sans-serif;
-  color: #555558;
-  background-color: linen;
+  color: $text-color;
+  background-color: $body-bgr-color;
+  @include linear-gradient($orange-paler, $orange-palest, $orange-paler);
 }
 .centered {
-  width: $w-720; min-height:100%;
-  margin:0 auto; padding: 30px $outer-margin 100px;
+  width: $wide; min-height:100%;
+  margin: 0 auto; padding: 30px $outer-margin 100px;
   background-color: #fefefe;
+  border-width: 0 1px; border-style: solid; border-color: $orange-palest;
+
   /* draw grid: 1. baseline, 2. column; */
   // @include background-image(linear-gradient(linen 1px, transparent 1px), linear-gradient(left, transparent $gw-column, #f5f5f5 $gw-gutter));
   // @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
@@ -40,10 +54,15 @@ nav a, .contact a { font-weight: 400; }
 /* links */
 a {
   text-decoration: none;
+  color: $link-color;
+
+  &:hover, &:active {
+    border-bottom: 3px solid $purple;
+  }
 }
 
 /* lists */
-ol, ul { list-style-position:inside }
+ol, ul { list-style:inside none; }
 .inline li { float:left; }
 .listed { list-style-type: disc; }
 
@@ -62,8 +81,11 @@ h2 {
 
 /* nav */
 .site-nav {
-  height: 3 * $line-h;
-  li { padding-right:20px; }
+  margin-bottom: 4 * $line-h;
+  li { padding-right: 20px; }
+  .home & .home, .projects & .projects, .blog & .blog, .archive & .archive {
+    border-bottom: 3px solid $orange-palest;
+  }
 }
 .elsewhere {
   li { width: $gw-column + $gw-gutter;
