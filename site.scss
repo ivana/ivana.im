@@ -22,22 +22,23 @@ $outer-margin: 70px;
 @function total-width($n, $outer: $outer-margin) {
   @return grid-width($n) + (2 * $outer);
 }
-$wide: total-width(8);
 
+$wide: total-width(8);
 $font-size: 16px;
 $line-h: $font-size * 1.5;
 
 /* layout */
 body {
-  font: 400 16px/1.5 avenir, verdana, arial, helvetica, sans-serif;
+  font: 400 #{$font-size}/1.5 avenir, verdana, arial, helvetica, sans-serif;
   color: $text-color;
   background-color: $orange-paler;
   @include background-image(linear-gradient(left, $orange-paler 1px, $orange-palest 2px));
   @include background-size(3px 3px);
 }
 .centered {
-  width: $wide; min-height: 100%;
+  width: $wide;
   margin: 0 auto; padding: 30px $outer-margin 100px;
+  min-height: 100%;
   background-color: #fefefe;
   border-width: 0 1px; border-style: solid; border-color: $orange-palest;
 
@@ -69,28 +70,38 @@ ol, ul { list-style:inside none; }
 /* headings */
 h1 {
   font-size: 40px; font-weight: 700;
-  margin-bottom: 2.5 * $line-h;
+  margin-bottom: 3.75rem;
 
   body > & { line-height:0; margin: 0 0 0 -20000px; }
 }
 h2 {
-  font-size: 16px;
+  font-size: $font-size;
   text-transform: uppercase;
   margin: 3rem 0 1.5rem;
 }
 
 /* nav */
 .site-nav {
-  margin-bottom: 4 * $line-h;
+  margin-bottom: 6rem;
   li { padding-right: 20px; }
   .home & .home, .projects & .projects, .blog & .blog, .archive & .archive {
     border-bottom: 3px solid $orange-palest;
   }
 }
-.elsewhere {
-  li { width: $gw-column + $gw-gutter;
-  }
-}
-
-/* about */
 .contact { display: block; float: right; margin: 0; }
+
+/* iPhone */
+@media only screen and (max-width:480px) {
+  body {
+    font-size: 24px;
+  }
+  .centered {
+    width: total-width(6);
+    padding: 20px;
+  }
+  .site-nav {
+    margin-bottom: 5rem;
+  }
+  h1 { margin-bottom: 2.5rem; }
+  h2 { margin-top: 2.5rem; }
+}
