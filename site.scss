@@ -65,9 +65,11 @@ a {
 }
 
 /* lists */
-ol, ul { list-style:inside none; }
-.inline li { float:left; }
-.listed { list-style-type: disc; }
+ul { list-style: inside disc; }
+ol { list-style: inside decimal; }
+.inline { list-style-type: none;
+  li { float: left; }
+}
 
 /* headings */
 h1 {
