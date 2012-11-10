@@ -4,7 +4,7 @@
   vertical-align: baseline;
 }
 
-/* colours: http://colorschemedesigner.com/#5q61Tq6.ow0w0 */
+// colours: http://colorschemedesigner.com/#5q61Tq6.ow0w0
 $pink: #e92b61;
 $purple: #883584;
 $orange: #FF6D2F;
@@ -14,7 +14,7 @@ $orange-palest: #FFAF8D;
 $link-color: $pink;
 $text-color: #555558;
 
-/* define grid (http://thoughtbot.com/bourbon/#grid-width) */
+// define grid (http://thoughtbot.com/bourbon/#grid-width)
 $gw-column: 60px;
 $gw-gutter: 20px;
 $outer-margin: 70px;
@@ -37,12 +37,12 @@ body {
 }
 .centered {
   width: $wide;
-  margin: 0 auto; padding: 30px $outer-margin 100px;
   min-height: 100%;
+  margin: 0 auto; padding: 30px $outer-margin 100px;
   background-color: #fefefe;
   border-width: 0 1px; border-style: solid; border-color: $orange-palest;
 
-  /* draw grid: 1. baseline, 2. column; */
+  // draw grid: 1. baseline, 2. column;
   // @include background-image(linear-gradient(linen 1px, transparent 1px), linear-gradient(left, transparent $gw-column, #f5f5f5 $gw-gutter));
   // @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
   // background-position: -1px -1px, $outer-margin 0;
