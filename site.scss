@@ -38,7 +38,7 @@ body {
 .centered {
   width: $wide;
   min-height: 100%;
-  margin: 0 auto; padding: 30px $outer-margin 100px;
+  margin: 0 auto; padding: 30px $outer-margin 8rem;
   background-color: #fefefe;
   border-width: 0 1px; border-style: solid; border-color: $orange-palest;
 
@@ -47,6 +47,8 @@ body {
   // @include background-size($line-h $line-h, ($gw-column + $gw-gutter) ($gw-column + $gw-gutter));
   // background-position: -1px -1px, $outer-margin 0;
 }
+aside { margin-top: 5.5rem; }
+
 /* general */
 p { margin: 1.5rem 0; }
 strong, a, h2 { font-weight: 500; }
@@ -70,7 +72,8 @@ ol, ul { list-style:inside none; }
 /* headings */
 h1 {
   font-size: 40px; font-weight: 700;
-  margin-bottom: 3.75rem;
+  margin-bottom: 4.25rem;
+  line-height: 1.2;
 
   body > & { line-height:0; margin: 0 0 0 -20000px; }
 }
@@ -82,13 +85,22 @@ h2 {
 
 /* nav */
 .site-nav {
-  margin-bottom: 6rem;
+  margin-bottom: 6.25rem;
   li { padding-right: 20px; }
   .home & .home, .projects & .projects, .blog & .blog, .archive & .archive {
     border-bottom: 3px solid $orange-palest;
   }
 }
-.contact { display: block; float: right; margin: 0; }
+.contact, .blog-nav { display: block; float: right; margin: 0; }
+.blog-nav li { padding-left: 20px; }
+
+/* blog */
+.post h1 a:hover { border-bottom: 0 none; }
+.published { color: #bbb; font-style: italic;
+  time { color: #555558; }
+  time, a { padding: 0 1px; }
+}
+.gist { font-size: 15px; }
 
 /* iPhone */
 @media only screen and (max-width:480px) {
