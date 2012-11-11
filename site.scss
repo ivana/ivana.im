@@ -68,9 +68,11 @@ a {
 /* lists */
 ul { list-style: inside disc; }
 ol { list-style: inside decimal; }
-.inline { list-style-type: none;
-  li { float: left; }
+.inline, .archive ol, .echoes ol {
+  list-style-type: none;
 }
+.inline li { float: left; }
+.archive li { margin-bottom: 1.5rem; }
 
 /* headings */
 h1 {
@@ -104,6 +106,7 @@ h2 {
   time, a { padding: 0 1px; }
 }
 .gist { font-size: 15px; }
+.archive time { float: right; }
 
 /* iPhone */
 @media only screen and (max-width:480px) {
