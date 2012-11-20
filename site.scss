@@ -23,7 +23,7 @@ $outer-margin: 70px;
   @return grid-width($n) + (2 * $outer);
 }
 
-$wide: total-width(8);
+$default-w: total-width(8);
 $font-size: 16px;
 $line-h: $font-size * 1.5;
 
@@ -36,7 +36,7 @@ body {
   @include background-size(3px 3px);
 }
 .centered {
-  width: $wide;
+  width: $default-w;
   min-height: 100%;
   margin: 0 auto; padding: 30px $outer-margin 8rem;
   background-color: #fefefe;
@@ -108,7 +108,15 @@ h2 {
 .gist { font-size: 15px; }
 .archive time { float: right; }
 
-/* iPhone */
+/* between smartphone and default width */
+@media only screen and (max-width: $default-w) {
+  .centered {
+    padding: 30px #{$outer-margin / $default-w * 100}% 8rem;
+    width: 100%;
+  }
+}
+
+/* smartphone */
 @media only screen and (max-width:480px) {
   body {
     font-size: 24px;
