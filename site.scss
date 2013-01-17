@@ -81,7 +81,7 @@ ol { list-style: inside decimal; }
 /* headings */
 h1 {
   font-size: 40px;
-  margin-bottom: 4.25rem;
+  margin-bottom: 2.75rem;
   line-height: 1.2;
 
   body > & { line-height:0; margin: 0 0 0 -20000px; }
@@ -94,7 +94,7 @@ h2 {
 
 /* nav */
 .site-nav {
-  margin-bottom: 6.25rem;
+  margin-bottom: 4.75rem;
   li { padding-right: 20px; }
   .home & .home, .projects & .projects, .blog & .blog, .archive & .archive {
     border-bottom: 3px solid $orange-palest;
