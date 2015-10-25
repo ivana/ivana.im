@@ -38,7 +38,7 @@ body {
 .centered {
   width: $default-w;
   min-height: 100%;
-  margin: 0 auto; padding: 30px $outer-margin 8rem;
+  margin: 0 auto; padding: 30px $outer-margin;
   background-color: #fefefe;
   border-width: 0 1px; border-style: solid; border-color: $orange-palest;
 
