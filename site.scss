@@ -33,7 +33,7 @@ body {
   color: $text-color;
   background-color: $orange-paler;
   @include background-image(linear-gradient(left, $orange-paler 1px, $orange-palest 2px));
-  @include background-size(3px 3px);
+  background-size: 3px 3px;
 }
 .centered {
   width: $default-w;
